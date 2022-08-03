@@ -21,8 +21,9 @@ jobs:
           script: |
             cd /var/www/nostracode/coba
             pwd
+            ssh-keyscan github.com >> ~/.ssh/known_hosts
             ssh-agent -a $SSH_AUTH_SOCK > /dev/null
-            ssh-add - <<< "${{ secrets.DO_SSHKEY }}"
+            ssh-add - <<< "${{secrets.DO_SSHKEY}}"
             sudo git pull origin main
             sudo git status
             service nginx restart
