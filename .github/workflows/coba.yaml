@@ -20,4 +20,5 @@ jobs:
             whoami
             cd /var/www/nostracode/coba
             git pull origin main
+            ${{ secrets.DO_PASSPHRASE }}
             service nginx restart
