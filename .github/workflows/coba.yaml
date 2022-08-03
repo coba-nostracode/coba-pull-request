@@ -17,6 +17,7 @@ jobs:
           key: ${{secrets.DO_SSHKEY}}
           passphrase: ${{ secrets.DO_PASSPHRASE }}
           script: |
+            whoami
             cd /var/www/nostracode/coba
             sudo git pull origin main
             sudo git status
