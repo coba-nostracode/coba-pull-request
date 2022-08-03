@@ -18,9 +18,6 @@ jobs:
           passphrase: ${{ secrets.DO_PASSPHRASE }}
           script: |
             cd /var/www/nostracode/coba
-            pwd
-            sudo git remote
-            sudo git config --list
             sudo git pull origin main
             sudo git status
             service nginx restart
