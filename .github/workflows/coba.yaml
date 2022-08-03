@@ -19,8 +19,8 @@ jobs:
           script: |
             cd /var/www/nostracode/coba
             pwd
-            git remote
-            git config --list
-            git pull origin main
-            git status
+            sudo git remote
+            sudo git config --list
+            sudo git pull origin main
+            sudo git status
             service nginx restart
