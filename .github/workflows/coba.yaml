@@ -1,0 +1,23 @@
+name: Coba Workflows
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  job_one:
+    name: coba deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: coba ssh connection
+        uses: appleboy/ssh-action@master
+        with:   
+          host: ${{ secrets.DO_HOST }}
+          username: ${{ secrets.DO_USERNAME }}
+          key: ${{secrets.DO_SSHKEY}}
+          passphrase: ${{ secrets.DO_PASSPHRASE }}
+          script: |
+            cd /var/www/nostracode
+            ll
