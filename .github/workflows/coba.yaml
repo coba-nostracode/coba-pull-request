@@ -20,4 +20,4 @@ jobs:
           passphrase: ${{ secrets.DO_PASSPHRASE }}
           script: |
             cd /var/www/nostracode
-            ll
+            ls -a
