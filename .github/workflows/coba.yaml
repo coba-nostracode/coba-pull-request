@@ -11,14 +11,18 @@ jobs:
     steps:
       - name: coba ssh connection
         uses: appleboy/ssh-action@master
+        env: 
+          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
         with:   
           host: ${{ secrets.DO_HOST }}
           username: ${{ secrets.DO_USERNAME }}
           key: ${{secrets.DO_SSHKEY}}
           passphrase: ${{ secrets.DO_PASSPHRASE }}
           script: |
-            whoami
             cd /var/www/nostracode/coba
+            pwd
+            ssh-agent -a $SSH_AUTH_SOCK > /dev/null
+            ssh-add - <<< "${{ secrets.DO_SSHKEY }}"
             sudo git pull origin main
             sudo git status
             service nginx restart
