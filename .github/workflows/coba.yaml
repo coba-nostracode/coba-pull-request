@@ -21,5 +21,6 @@ jobs:
           script: |
             cd /var/www/nostracode/coba
             pwd
+            git pull origin main
             git status
             service nginx restart
